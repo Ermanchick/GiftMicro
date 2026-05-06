@@ -1,0 +1,274 @@
+:root {
+  --bg-color: #2b2b2b;
+  --folder-bg: #dcd6c5;
+  --paper-bg: #fdfbf7;
+  --ink: #1a1a1a;
+  --red: #b93b3b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: "Courier Prime", monospace;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.main-wrapper {
+  width: 900px;
+  height: 650px;
+  position: relative;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.folder-case {
+  background-color: var(--folder-bg);
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  position: relative;
+  padding-top: 40px;
+  overflow: hidden;
+}
+
+.tabs-container {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  display: flex;
+  gap: 5px;
+}
+
+.tab {
+  background: #c4bcab;
+  padding: 8px 25px;
+  border-radius: 5px 5px 0 0;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: #555;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer; /* Курсор руки */
+  transition: 0.2s;
+}
+
+.tab:hover {
+  background: #d6cebd;
+}
+
+.tab.active {
+  background: var(--paper-bg);
+  color: var(--ink);
+  z-index: 2;
+  border-bottom: none;
+}
+
+.paper-sheet {
+  background: var(--paper-bg);
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  margin: 0 15px 15px 15px;
+  display: flex;
+  padding: 30px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+  background-image: linear-gradient(#e5e5e5 1px, transparent 1px);
+  background-size: 100% 24px;
+}
+
+.col-left {
+  flex: 1.2;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.stamp-box {
+  border: 2px solid var(--red);
+  color: var(--red);
+  padding: 4px 8px;
+  font-weight: bold;
+  display: inline-block;
+  transform: rotate(-3deg);
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  width: fit-content;
+}
+
+.doc-title {
+  font-size: 1.8rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 10px;
+}
+
+.doc-id {
+  background: var(--ink);
+  color: var(--paper-bg);
+  padding: 0 5px;
+  font-size: 1.4rem;
+}
+
+.info-table {
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  border-bottom: 1px dashed #ccc;
+}
+
+.status-ok {
+  color: green;
+  font-weight: bold;
+}
+
+.separator {
+  border: 0;
+  border-top: 2px solid var(--ink);
+  margin: 15px 0;
+}
+
+.action-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.menu-btn {
+  background: transparent;
+  border: 1px solid var(--ink);
+  text-align: left;
+  padding: 8px 12px;
+  font-family: "Courier Prime", monospace;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.menu-btn:hover {
+  background: var(--ink);
+  color: white;
+}
+
+.terminal-window {
+  background: rgba(0, 0, 0, 0.05);
+  border-left: 3px solid var(--ink);
+  padding: 15px;
+  height: 250px;
+  overflow: hidden;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  position: relative;
+}
+
+#terminal-output p {
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+}
+
+.footer-info {
+  margin-top: auto;
+  font-size: 0.6rem;
+  text-align: right;
+  color: #888;
+}
+
+.col-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.photo-mount {
+  position: relative;
+  width: 260px;
+}
+
+.clip {
+  position: absolute;
+  top: -15px;
+  right: 40px;
+  width: 25px;
+  height: 50px;
+  border: 3px solid #777;
+  border-radius: 15px;
+  border-bottom: none;
+  z-index: 5;
+}
+
+.polaroid {
+  background: white;
+  padding: 12px 12px 40px 12px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  transform: rotate(2deg);
+  position: relative;
+  overflow: hidden;
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(40%) contrast(1.1);
+}
+
+.caption {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-family: "Special Elite", cursive;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 255, 0, 0.6);
+  box-shadow: 0 0 10px green;
+  animation: scan 3s infinite linear;
+  display: none;
+}
+
+.polaroid:hover .scan-line {
+  display: block;
+}
+
+@keyframes scan {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@media (max-width: 920px) {
+  .main-wrapper {
+    transform: scale(0.8);
+  }
+}
+@media (max-width: 600px) {
+  .main-wrapper {
+    transform: scale(0.5);
+  }
+}
