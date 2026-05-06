@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARCHIVE: SHIKARNAYA</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="folder-case">
+        <!-- ВКЛАДКИ (ТЕПЕРЬ РАБОЧИЕ) -->
+        <div class="tabs-container">
+          <div class="tab active" onclick="switchTab('dossier')">ДОСЬЕ</div>
+          <div class="tab" onclick="switchTab('evidence')">УЛИКИ</div>
+          <div class="tab" onclick="switchTab('report')">ОТЧЕТ</div>
+        </div>
+
+        <!-- ЛИСТ БУМАГИ -->
+        <div class="paper-sheet">
+          <!-- ЛЕВАЯ КОЛОНКА -->
+          <div class="col-left">
+            <div class="stamp-box" id="page-stamp">TOP SECRET</div>
+
+            <h1 class="doc-title" id="page-title">
+              ЛИЧНОЕ ДЕЛО<br /><span class="doc-id">№ 007-SHIK</span>
+            </h1>
+
+            <div class="info-table" id="info-block">
+              <div class="info-row">
+                <span>СУБЪЕКТ:</span>
+                <span class="typed-text">Подруга</span>
+              </div>
+              <div class="info-row">
+                <span>СТАТУС:</span>
+                <span class="status-ok">ICONIC</span>
+              </div>
+              <div class="info-row">
+                <span>ДАТА:</span>
+                <span>07.05.2026</span>
+              </div>
+            </div>
+
+            <hr class="separator" />
+
+            <!-- МЕНЮ (меняется динамически) -->
+            <div class="action-menu" id="menu-container">
+              <!-- Кнопки появятся через JS -->
+            </div>
+
+            <!-- ОКНО ТЕКСТА -->
+            <div class="terminal-window">
+              <div id="terminal-output"></div>
+            </div>
+
+            <div class="footer-info">CONFIDENTIAL // DO NOT COPY</div>
+          </div>
+
+          <!-- ПРАВАЯ КОЛОНКА (ФОТО) -->
+          <div class="col-right">
+            <div class="photo-mount">
+              <div class="clip"></div>
+              <div class="polaroid">
+                <!-- ID ДЛЯ СКРИПТА -->
+                <img
+                  id="main-image"
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  alt="Subject"
+                />
+                <div class="scan-line"></div>
+              </div>
+              <div class="caption" id="photo-caption">FIG. A — THE MUSE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
