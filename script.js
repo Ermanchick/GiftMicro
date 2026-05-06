@@ -155,7 +155,9 @@ function loadContent(contentKey) {
   if (isTyping) return;
   isTyping = true;
 
+  const outputDiv = document.getElementById("terminal-output");
   outputDiv.innerHTML = "";
+
   const lines = archiveData[currentTab].content[contentKey];
   let lineIndex = 0;
 
@@ -163,6 +165,11 @@ function loadContent(contentKey) {
     if (lineIndex < lines.length) {
       const p = document.createElement("p");
       outputDiv.appendChild(p);
+
+      // --- ИСПРАВЛЕНИЕ: Прокрутка вниз ---
+      // Сразу прокручиваем к только что созданной пустой строке
+      p.scrollIntoView({ behavior: "smooth", block: "end" });
+      // -----------------------------------
 
       let charIndex = 0;
       const text = lines[lineIndex];
